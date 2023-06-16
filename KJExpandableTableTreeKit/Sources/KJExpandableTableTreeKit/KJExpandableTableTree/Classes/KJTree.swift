@@ -44,7 +44,7 @@ import UIKit
             if arrayParents.contains(where: { $0.givenIndex == components.first }) {
                 
                 // if parent exists
-                let position = arrayParents.index(where: { $0.givenIndex == components.first })
+                let position = arrayParents.firstIndex(where: { $0.givenIndex == components.first })
                 components.removeFirst()
                 let parent = self.arrayParents[position!]
                 
@@ -61,7 +61,7 @@ import UIKit
                     // if there are subchilds.
                     let internalIndex = parent.givenIndex+"."+components.first!
                     if parent.arrayChilds.contains(where: {$0.givenIndex == internalIndex}) {
-                        let position = parent.arrayChilds.index(where: { $0.givenIndex == internalIndex })
+                        let position = parent.arrayChilds.firstIndex(where: { $0.givenIndex == internalIndex })
                         var child = parent.arrayChilds[position!]
                         child.givenIndex = internalIndex
                         components.removeFirst()
@@ -120,7 +120,7 @@ import UIKit
             // if there are subchilds.
             let internalIndex = inChild.givenIndex+"."+components.first!
             if inChild.arrayChilds.contains(where: {$0.givenIndex == internalIndex}) {
-                let position = inChild.arrayChilds.index(where: { $0.givenIndex == internalIndex })
+                let position = inChild.arrayChilds.firstIndex(where: { $0.givenIndex == internalIndex })
                 var child = inChild.arrayChilds[position!]
                 child.givenIndex = internalIndex
                 components.removeFirst()
